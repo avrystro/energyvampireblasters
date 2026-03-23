@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Vampire Detection Kit</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --blood-red: #8B0000;
+    --deep-purple: #1a0a2e;
+    --accent-gold: #d4a574;
+    --soft-cream: #faf5ef;
+    --text-dark: #1a1a1a;
+    --text-medium: #4a4a4a;
+    --text-light: #7a7a7a;
+  }
+
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background: white;
+    line-height: 1.7;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* COVER PAGE */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--deep-purple) 0%, #2d1050 40%, var(--blood-red) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 70%, rgba(139,0,0,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(212,165,116,0.1) 0%, transparent 50%);
+    animation: none;
+  }
+
+  .cover-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 52px;
+    line-height: 1.15;
+    color: white;
+    max-width: 700px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover h1 span {
+    color: var(--accent-gold);
+  }
+
+  .cover-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    max-width: 500px;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-author {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-author strong {
+    color: var(--accent-gold);
+    font-weight: 600;
+  }
+
+  .cover-disclaimer {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    right: 40px;
+    font-size: 8px;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    line-height: 1.4;
+    z-index: 1;
+  }
+
+  /* CONTENT PAGES */
+  .page {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    page-break-after: always;
+  }
+
+  .page:last-child {
+    page-break-after: avoid;
+  }
+
+  /* INTRO PAGE */
+  .intro-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid var(--accent-gold);
+  }
+
+  .intro-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--deep-purple);
+    margin-bottom: 10px;
+  }
+
+  .intro-header p {
+    font-size: 14px;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  .intro-text {
+    font-size: 15px;
+    color: var(--text-medium);
+    margin-bottom: 20px;
+  }
+
+  .intro-text strong {
+    color: var(--text-dark);
+  }
+
+  .pull-quote {
+    background: var(--soft-cream);
+    border-left: 4px solid var(--blood-red);
+    padding: 20px 25px;
+    margin: 30px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--deep-purple);
+    line-height: 1.6;
+  }
+
+  /* VAMPIRE SECTION */
+  .vampire-section {
+    margin-bottom: 20px;
+  }
+
+  .vampire-number {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background: var(--blood-red);
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 48px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+
+  .vampire-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--deep-purple);
+    margin-bottom: 5px;
+  }
+
+  .vampire-category {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blood-red);
+    margin-bottom: 20px;
+  }
+
+  .vampire-description {
+    font-size: 15px;
+    color: var(--text-medium);
+    margin-bottom: 20px;
+  }
+
+  .vampire-description strong {
+    color: var(--text-dark);
+  }
+
+  .signs-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blood-red);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .sign-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    padding-left: 5px;
+  }
+
+  .sign-icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    background: var(--soft-cream);
+    border: 1.5px solid var(--blood-red);
+    border-radius: 50%;
+    margin-right: 12px;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--blood-red);
+  }
+
+  .sign-text {
+    font-size: 14px;
+    color: var(--text-medium);
+    line-height: 1.6;
+  }
+
+  .sign-text strong {
+    color: var(--text-dark);
+  }
+
+  .protection-box {
+    background: linear-gradient(135deg, var(--deep-purple) 0%, #2d1050 100%);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 8px;
+    margin-top: 25px;
+  }
+
+  .protection-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--accent-gold);
+    margin-bottom: 12px;
+  }
+
+  .protection-box p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .protection-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .protection-box li {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+
+  .protection-box li::before {
+    content: '\2022';
+    color: var(--accent-gold);
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    text-align: center;
+    margin: 40px 0;
+    color: var(--accent-gold);
+    font-size: 24px;
+    letter-spacing: 12px;
+  }
+
+  /* CTA PAGE */
+  .cta-page {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    text-align: center;
+  }
+
+  .cta-page h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--deep-purple);
+    margin-bottom: 20px;
+  }
+
+  .cta-page h2 span {
+    color: var(--blood-red);
+  }
+
+  .cta-text {
+    font-size: 16px;
+    color: var(--text-medium);
+    max-width: 550px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+  }
+
+  .cta-steps {
+    text-align: left;
+    max-width: 480px;
+    margin: 0 auto 40px;
+  }
+
+  .cta-step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+
+  .step-num {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    background: var(--blood-red);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    margin-top: 2px;
+  }
+
+  .step-text {
+    font-size: 15px;
+    color: var(--text-medium);
+    line-height: 1.6;
+  }
+
+  .step-text strong {
+    color: var(--text-dark);
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--blood-red);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 16px 40px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-bottom: 15px;
+  }
+
+  .cta-sub {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  .author-box {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid var(--accent-gold);
+    text-align: left;
+  }
+
+  .author-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--deep-purple);
+    margin-bottom: 10px;
+  }
+
+  .author-box p {
+    font-size: 13px;
+    color: var(--text-medium);
+    line-height: 1.7;
+  }
+
+  .footer-disclaimer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 9px;
+    color: var(--text-light);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* PRINT STYLES */
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cover { height: 100vh; }
+    .page { padding: 40px 50px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <div class="cover-subtitle">Energy Vampire Blasters Presents</div>
+  <h1>Energy Vampire <span>Detection Kit</span></h1>
+  <p class="cover-tagline">The 5 Energy Vampires draining your life -- and how to recognize the people, habits, and hidden patterns stealing your energy, your peace, and your power.</p>
+  <p class="cover-author">By <strong>David Lloyd Strauss</strong></p>
+  <p class="cover-disclaimer">Copyright 2026, Energy Vampires LLC | All Rights Reserved. For educational and entertainment purposes only. Not a substitute for professional therapy or medical advice. energyvampireblasters.com</p>
+</div>
+
+<!-- INTRO PAGE -->
+<div class="page">
+  <div class="intro-header">
+    <h2>You Already Know Something Is Draining You</h2>
+    <p>You just haven't been able to name it yet.</p>
+  </div>
+
+  <p class="intro-text">You know the feeling. You hang up the phone and your whole body feels heavy. You leave a conversation and need a nap. You scroll for 45 minutes and wonder where the time went. You lie in bed replaying something someone said, and your chest gets tight.</p>
+
+  <p class="intro-text"><strong>That feeling has a name. It's called an Energy Vampire.</strong></p>
+
+  <p class="intro-text">Energy Vampires are people, habits, addictions, and patterns that drain your emotional energy, steal your peace, and keep you stuck. They don't have fangs. They don't wear capes. But after you interact with one, you feel like something has latched onto your heart and mind and drained you dry.</p>
+
+  <p class="intro-text">Here's the part most people miss: Energy Vampires are not just toxic people. They're also the habits you've normalized. The addictions you don't call addictions. And the voice inside your own head that tells you you're not good enough.</p>
+
+  <div class="pull-quote">
+    "The most important decision you will ever make is the people you allow to be a part of your life."
+  </div>
+
+  <p class="intro-text">In this guide, you'll meet the <strong>5 most common Energy Vampires</strong> that show up in the lives of people who are ready for change. You'll learn how to recognize them, understand why they have power over you, and discover what you can do to start blasting them out of your life.</p>
+
+  <p class="intro-text">This is not about blaming anyone. This is about <strong>awareness</strong>. Because once you can see the vampire, it can no longer hide in the dark.</p>
+
+  <p class="intro-text">Let's turn the lights on.</p>
+</div>
+
+<!-- VAMPIRE #1: THE TAKER -->
+<div class="page">
+  <div class="vampire-section">
+    <div class="vampire-number">1</div>
+    <h2 class="vampire-title">The Taker</h2>
+    <p class="vampire-category">Energy Vampire Type: People</p>
+
+    <p class="vampire-description">Also known as the narcissist, <strong>The Taker is all about what they can get, never what they can give.</strong> They are only emotionally available when they want something. Everything is about them. They are selfish and self-absorbed, yet can also be seductive and charming. They have strong personalities and a deep need for significance and control.</p>
+
+    <p class="vampire-description">The Taker will provoke you with their charm and then slowly drag you into their world by making you feel "needed." When they do this, it makes them feel loved, significant, and in control. <strong>You feel essential. They feel powerful. And you don't realize you're being drained until you're running on empty.</strong></p>
+
+    <p class="signs-header">How to Recognize The Taker</p>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Emotional Manipulator:</strong> They twist situations to suit their own needs. They'll make you feel guilty for not meeting their demands, claiming that their emotional well-being is your responsibility. If anything goes wrong, they're quick to blame you, never taking responsibility for their own actions.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Boundary Pusher:</strong> They don't respect personal space or limits. They'll ask for favors without reciprocation, take up your time without regard, and push their agenda without considering your feelings. When you finally set boundaries, they'll make you feel selfish for "abandoning" them.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Conversational Hoarder:</strong> Every conversation is about them. Their achievements, their problems, their life. If you manage to interject, they steer it right back. You hang up the phone feeling unheard and emotionally exhausted.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Validation Seeker:</strong> They seem emotionally available at times, but only to feed their need for constant validation. They rely on external approval for their sense of self-worth but seldom offer any genuine emotional support in return.</p>
+    </div>
+
+    <div class="protection-box">
+      <h4>How to Blast This Vampire</h4>
+      <ul>
+        <li>Set clear boundaries and communicate them without guilt. "No" is a complete sentence.</li>
+        <li>Watch for the pattern: charm, then need, then blame. Once you see the cycle, it loses its power.</li>
+        <li>Stop being emotionally available on demand. Your energy is not an open buffet.</li>
+        <li>Ask yourself: "When was the last time this person asked about MY life?" If you can't remember, you have your answer.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- VAMPIRE #2: THE DRAMA QUEEN -->
+<div class="page">
+  <div class="vampire-section">
+    <div class="vampire-number">2</div>
+    <h2 class="vampire-title">The Drama Queen</h2>
+    <p class="vampire-category">Energy Vampire Type: People</p>
+
+    <p class="vampire-description"><strong>The Drama Queen is the black hole of attention.</strong> They seek validation and approval at all costs. Their life is an endless soap opera of whining, disappointments, false hopes, complaints, and gossip. They believe the easiest way to get love and attention is by broadcasting their problems to everyone until someone consoles them.</p>
+
+    <p class="vampire-description">You know this person. Every time you see their name on your phone, your stomach drops. <strong>There's always a crisis. There's always a story. And you're always the audience.</strong></p>
+
+    <p class="signs-header">How to Recognize The Drama Queen</p>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Crisis Creator:</strong> Life is never calm around them. There's always a crisis that requires immediate attention. Whether it's a falling out with a friend or an "urgent" issue at work, they expect you to drop everything to help. They are addicted to the adrenaline rush of emergencies.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Emotional Extortionist:</strong> If they sense they're not the center of attention, they resort to dramatic gestures -- crying, storming out, creating a scene. It forces everyone to focus on them and their "crisis" at hand.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Overreactor:</strong> Every event, no matter how minor, is a big deal. Lost their keys? Tragedy. Someone made a passing comment? Grounds for a feud. They amplify every situation to extract the maximum amount of emotional investment from everyone around them.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Gossip Monger:</strong> They live for the latest scoop and are not above creating drama to have something to talk about. Their love of gossip isn't just entertainment -- it's how they feel important and draw people into their emotional vortex.</p>
+    </div>
+
+    <div class="protection-box">
+      <h4>How to Blast This Vampire</h4>
+      <ul>
+        <li>Stop being the first responder. You are not their emotional 911.</li>
+        <li>When they bring drama, respond with calm. "That sounds tough. What are you going to do about it?" puts the responsibility back on them.</li>
+        <li>Limit your exposure. You don't have to answer every call or respond to every text immediately.</li>
+        <li>Notice whether they ever ask for a solution, or just want an audience. If it's always an audience, you're being used as entertainment.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- VAMPIRE #3: THE BLAMER -->
+<div class="page">
+  <div class="vampire-section">
+    <div class="vampire-number">3</div>
+    <h2 class="vampire-title">The Blamer</h2>
+    <p class="vampire-category">Energy Vampire Type: People</p>
+
+    <p class="vampire-description"><strong>The Blamer lives a life of perpetual blame and victimhood.</strong> They never accept responsibility for the challenges in their life. They look for reasons outside of themselves to justify their failures and shortcomings. They do this because they have deep fears of rejection and failure. Through an unhealthy form of self-preservation, they deflect their problems and postpone the pain of growing and maturing.</p>
+
+    <p class="vampire-description">The danger of The Blamer is how subtly they make <strong>you</strong> feel responsible for <strong>their</strong> life. Over time, you start carrying weight that was never yours to carry.</p>
+
+    <p class="signs-header">How to Recognize The Blamer</p>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Perennial Finger-Pointer:</strong> They're quick to shift blame for their own failures onto others. Missed a deadline? Their coworker's fault. Relationship troubles? Entirely their partner's fault. They are experts at avoiding personal accountability.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Past-Dweller:</strong> The past is an inexhaustible well of excuses. They attribute their current failures to a difficult childhood, a past relationship, or something that happened years ago. They refuse to engage with the possibility that they could change their present by taking responsibility now.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Injustice Collector:</strong> They keep a mental tally of every perceived wrong committed against them and use it as a shield to divert blame for their own life situation. They are always on the lookout for slights, even where none exist.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Chronic Complainer:</strong> They find fault in everything -- the weather, the government, the economy, other people. By focusing on external problems, they avoid addressing their internal ones.</p>
+    </div>
+
+    <div class="protection-box">
+      <h4>How to Blast This Vampire</h4>
+      <ul>
+        <li>Refuse to accept blame that isn't yours. Their problems are not your responsibility.</li>
+        <li>When they complain, ask: "What part of this can YOU control?" Redirect from blame to ownership.</li>
+        <li>Pay attention to how you feel after conversations. If you feel guilty for no reason, a Blamer has been at work.</li>
+        <li>Model personal responsibility in your own life. Sometimes the best thing you can do for a Blamer is refuse to participate in the blame game.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- VAMPIRE #4: THE SCROLL HOLE -->
+<div class="page">
+  <div class="vampire-section">
+    <div class="vampire-number">4</div>
+    <h2 class="vampire-title">The Scroll Hole</h2>
+    <p class="vampire-category">Energy Vampire Type: Addictions &amp; Bad Habits</p>
+
+    <p class="vampire-description"><strong>Not all Energy Vampires are people.</strong> Some of the most dangerous vampires in your life are the habits you've normalized. The Scroll Hole is the addiction to social media, news, TV, apps, and digital consumption that you use to replace feelings of emptiness, avoid discomfort, or numb yourself from pain.</p>
+
+    <p class="vampire-description">You know the cycle: you pick up your phone to "check one thing" and 45 minutes later, you're deep in someone else's highlight reel, feeling worse about your own life. <strong>The Scroll Hole doesn't drain your blood. It drains your time, your focus, and your self-worth.</strong></p>
+
+    <p class="signs-header">How to Recognize The Scroll Hole</p>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Social Media Scroller:</strong> You're addicted to the instant gratification of likes, comments, and validation. But you also find yourself constantly comparing your life to others', which makes you feel inadequate. It's a vicious cycle that keeps you engaged but leaves you emotionally depleted.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Comfort Consumer:</strong> You seek solace in food, shopping, or substances as a way to fill an emotional void. Feeling stressed or unloved? A tub of ice cream, a shopping cart full of things you don't need, or a glass of wine becomes your closest companion. The brief high is always followed by guilt.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The News Junkie:</strong> You're constantly tuned into the 24-hour news cycle, convinced that staying informed will somehow empower you. Instead, the often negative and sensational news heightens your anxiety. You use the flood of information as a distorted form of control.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>The Jack-of-All-Triggers:</strong> Your addiction of the moment shifts based on your current emotional void. Binge-watching, impulsive shopping, doom scrolling, emotional eating -- you sample from an emotional buffet of distractions, but never find true nourishment.</p>
+    </div>
+
+    <div class="protection-box">
+      <h4>How to Blast This Vampire</h4>
+      <ul>
+        <li>Track your screen time for one week. The number will shock you into awareness.</li>
+        <li>Replace the habit with a ritual. When you reach for your phone, do 10 deep breaths instead. Interrupt the pattern.</li>
+        <li>Unfollow anyone who makes you feel worse after seeing their content. Curate your feed like your peace depends on it -- because it does.</li>
+        <li>Ask yourself: "Am I consuming this because I want to, or because I'm avoiding something I need to feel?" Honest answers change everything.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- VAMPIRE #5: THE INNER VAMPIRE -->
+<div class="page">
+  <div class="vampire-section">
+    <div class="vampire-number">5</div>
+    <h2 class="vampire-title">The Inner Vampire</h2>
+    <p class="vampire-category">Energy Vampire Type: Your Own Mind</p>
+
+    <p class="vampire-description"><strong>This is the vampire you didn't see coming. Because it's you.</strong></p>
+
+    <p class="vampire-description">It is easy to recognize the Energy Vampires in your life. What is much more difficult is to be honest with yourself and acknowledge your Inner Vampire -- your negative thoughts, beliefs, and attitudes, and your self-destructive habits.</p>
+
+    <p class="vampire-description">Your Inner Vampire hides behind the veil of being a victim, deflecting problems, and blaming people and circumstances for your shortcomings. It can be recognized by your inner dialogue -- the ongoing conversation you have with yourself in your mind. <strong>This conversation reflects your self-image and is the endless chatter of self-limiting beliefs, making excuses, judging and criticizing yourself, and blaming others for your problems. It is a chronic form of self-sabotage.</strong></p>
+
+    <p class="signs-header">The Inner Vampire's Favorite Lines</p>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>"What's wrong with me?"</strong> -- Constant self-criticism. You've just done something well, but you fixate on the one thing you got wrong. You replay it over and over, telling yourself you're not good enough.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>"I'll never succeed."</strong> -- Fear of failure so deep that you don't even try. You turn down opportunities, stay small, and then use your own inaction as evidence that you were never cut out for success.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>"It's not my fault."</strong> -- The victim mindset. You missed the bus because you left late, but you blame the alarm clock, the bus schedule, your family. You position yourself as a victim of circumstances rather than the author of your choices.</p>
+    </div>
+
+    <div class="sign-item">
+      <div class="sign-icon">&bull;</div>
+      <p class="sign-text"><strong>"I just need to feel better first."</strong> -- Emotional suppression. You push your feelings aside and put on a brave face, leading to bottled-up emotions that eventually explode. You cope by consuming -- food, screens, shopping -- instead of feeling.</p>
+    </div>
+
+    <div class="protection-box">
+      <h4>How to Blast This Vampire</h4>
+      <p>Here's the truth most people don't want to hear: <strong>The Energy Vampires that show up in your life are a reflection of your Inner Vampire.</strong> In life, you do not get what you want. You get what you are. The people and situations that show up in your life match your beliefs about yourself.</p>
+      <ul>
+        <li>Catch the chatter. When your Inner Vampire speaks, write it down. Seeing your negative self-talk on paper takes away its power.</li>
+        <li>Replace the script. For every "I can't," write down an "I am." Not affirmations you don't believe -- truths you've forgotten.</li>
+        <li>Build your confidence through action, not thought. The way to slay your Inner Vampire is not to think differently. It's to DO differently. Small wins compound.</li>
+        <li>Surround yourself with people who challenge you to grow. Your tribe is the most important decision you'll ever make.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CTA / NEXT STEPS PAGE -->
+<div class="cta-page">
+  <h2>Ready to <span>Blast</span> These Vampires for Good?</h2>
+
+  <p class="cta-text">This guide showed you what's draining you. But awareness is only the first step. To actually remove these vampires from your life, you need a system, a community, and a coach who's been through it.</p>
+
+  <p class="cta-text"><strong>That's exactly what Energy Vampire Blasters is.</strong></p>
+
+  <div class="cta-steps">
+    <div class="cta-step">
+      <div class="step-num">1</div>
+      <p class="step-text"><strong>Join the Energy Vampire Blasters Community</strong> -- Weekly live Zoom calls, challenges, and a tribe of people who are done tolerating vampires in their lives.</p>
+    </div>
+    <div class="cta-step">
+      <div class="step-num">2</div>
+      <p class="step-text"><strong>Take the 10-Day Energy Vampire Challenge</strong> -- A guided daily practice to identify, set boundaries with, and blast the vampires in your life. Free for community members.</p>
+    </div>
+    <div class="cta-step">
+      <div class="step-num">3</div>
+      <p class="step-text"><strong>Go deeper with David</strong> -- Group coaching, the full Energy Vampire Detection Kit, and the complete 7 Vampires framework that goes far beyond this guide.</p>
+    </div>
+  </div>
+
+  <a class="cta-button" href="#">JOIN THE COMMUNITY</a>
+  <p class="cta-sub">energyvampireblasters.com</p>
+
+  <div class="author-box">
+    <h3>About David Lloyd Strauss</h3>
+    <p>David Lloyd Strauss is an international bestselling author, ghost writer, and the creator of Energy Vampire Blasters. He has helped thousands of people recognize the negative influences draining their energy and reclaim their power. His work draws from decades of experience in personal development, storytelling, and the belief that the most important decision you'll ever make is the people you allow into your life. David is the author of multiple books on overcoming toxic relationships, building self-confidence, and creating a life of emotional freedom.</p>
+  </div>
+
+  <div class="footer-disclaimer">
+    <p>DISCLAIMER: The Energy Vampire Blasters guide is an educational and entertainment program designed to provide information and tools for personal growth and self-awareness. It is not a substitute for professional therapy, relationship counseling, or medical treatment from a qualified therapist or medical professional. The techniques and strategies described are not intended to diagnose or treat any mental health condition. If you have concerns about whether this material is appropriate for you, please consult with a qualified professional. The content creator cannot be held responsible for any loss, incident, or consequential damages that may result from the information presented.</p>
+    <p style="margin-top: 8px;">Copyright 2026, Energy Vampires LLC | All Rights Reserved. | energyvampireblasters.com</p>
+  </div>
+</div>
+
+</body>
+</html>
