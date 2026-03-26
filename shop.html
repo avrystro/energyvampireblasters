@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop | Energy Vampire Blasters</title>
+<meta name="description" content="Books, guides, challenges, and community access. Everything you need to identify your energy vampires and blast them out for good.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <a href="/" class="nav-logo"><img src="logo-clean.jpg" alt="Energy Vampire Blasters"></a>
+    <ul class="nav-links">
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="vampire-types.html">Vampire Types</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="quiz.html" class="nav-cta">Take the Quiz</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="quiz.html" onclick="closeNav()">Take the Quiz</a>
+  <a href="about.html" onclick="closeNav()">About</a>
+  <a href="shop.html" onclick="closeNav()">Shop</a>
+  <a href="vampire-types.html" onclick="closeNav()">Vampire Types</a>
+  <a href="blog.html" onclick="closeNav()">Blog</a>
+  <a href="press.html" onclick="closeNav()">Press</a>
+  <a href="vision.html" onclick="closeNav()">The Vision</a>
+  <a href="start-here.html" onclick="closeNav()">New Here?</a>
+  <a href="quiz.html" class="mobile-cta" onclick="closeNav()">Take the Free Quiz</a>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <p class="section-label">Shop</p>
+    <h1>Everything You Need to <span>Blast the Vampires Out</span></h1>
+    <p class="lead">Free tools, books, challenges, and community access. Start wherever you are. Every product is designed to help you name the drain and take action.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- FREE TIER -->
+<section class="page-section page-section-mid">
+  <div class="container">
+    <p class="section-label" style="margin-bottom: 32px;">Start Free</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+
+      <div class="product-card">
+        <span class="price-tag price-free">Free</span>
+        <h3>Energy Vampire Quiz</h3>
+        <div class="product-price" style="color: var(--cyan);">$0</div>
+        <p>Which of the 13 Energy Vampires is draining your life? Take the 2-minute quiz, get your vampire type, and share your results with friends. Funny, shareable, and surprisingly accurate.</p>
+        <a href="quiz.html" class="btn-primary">Take the Quiz</a>
+      </div>
+
+      <div class="product-card">
+        <span class="price-tag price-free">Free</span>
+        <h3>Energy Vampire Detection Kit</h3>
+        <div class="product-price" style="color: var(--cyan);">$0</div>
+        <p>The complete guide to the 5 core Energy Vampire types. Spot them, understand their tactics, and learn actionable strategies to blast each one. PDF download, email-gated.</p>
+        <a href="/#download" class="btn-primary" style="background: var(--cyan); color: var(--black);">Download the Kit</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- PAID PRODUCTS -->
+<section class="page-section page-section-dark">
+  <div class="container">
+    <p class="section-label" style="margin-bottom: 32px;">Books & Guides</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+
+      <div class="product-card">
+        <span class="price-tag price-low">Quick Guide</span>
+        <h3>Breaking The Habit of Toxic Love: Quick Guide</h3>
+        <div class="product-price" style="color: var(--yellow);">$6.99</div>
+        <p>The essential overview. If you're in a toxic relationship right now and need clarity fast, this is your starting point. Understand the patterns. See the exit. Take the first step.</p>
+        <a href="#" class="btn-primary" style="background: var(--yellow); color: var(--black);">Get the Guide</a>
+      </div>
+
+      <div class="product-card">
+        <span class="price-tag price-mid">Full Book</span>
+        <h3>Breaking The Habit of Toxic Love</h3>
+        <div class="product-price">$9.99</div>
+        <p>The raw, unfiltered truth about why you stay too long, love too hard, and lose yourself in people who were never going to love you back. Meet all 13 Energy Vampires. Understand their tactics. Learn how to break free.</p>
+        <a href="#" class="btn-primary">Get the Book</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CHALLENGE -->
+<section class="page-section page-section-mid">
+  <div class="container">
+    <p class="section-label" style="margin-bottom: 32px;">Take Action</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+
+      <div class="product-card">
+        <span class="price-tag price-mid">Challenge</span>
+        <h3>7-Day Energy Vampire Blaster Challenge (GA)</h3>
+        <div class="product-price">$27</div>
+        <p>7 days. 7 exercises. One decision that changes everything. Daily emails with lessons and exercises, private community access, and the Detection Kit included. This is where awareness becomes action.</p>
+        <ul style="margin-bottom: 20px;">
+          <li style="font-size: 14px; color: rgba(255,255,255,0.6); padding: 4px 0 4px 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--cyan);">&#10003;</span>7 daily emails with lessons + exercises</li>
+          <li style="font-size: 14px; color: rgba(255,255,255,0.6); padding: 4px 0 4px 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--cyan);">&#10003;</span>Private challenge community</li>
+          <li style="font-size: 14px; color: rgba(255,255,255,0.6); padding: 4px 0 4px 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--cyan);">&#10003;</span>Detection Kit included</li>
+          <li style="font-size: 14px; color: rgba(255,255,255,0.6); padding: 4px 0 4px 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--cyan);">&#10003;</span>Day 7: Community invitation</li>
+        </ul>
+        <a href="#" class="btn-outline">Join the Challenge</a>
+      </div>
+
+      <div class="product-card" style="border-color: var(--yellow);">
+        <span class="price-tag badge-vip" style="background: var(--yellow); color: var(--black);">VIP</span>
+        <h3>7-Day Blaster Challenge (VIP Experience)</h3>
+        <div class="product-price" style="color: var(--yellow);">$47</div>
+        <p>Everything in General Admission, plus personal access to David. Live Q&A after each lesson, worksheets, a personal Energy Vampire Scorecard, and a voice note from David on Day 7.</p>
+        <ul style="margin-bottom: 20px;">
+          <li style="font-size: 14px; color: rgba(255,255,255,0.6); padding: 4px 0 4px 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--yellow);">&#10003;</span>Everything in GA</li>
+          <li style="font-size: 14px; color: rgba(255,255,255,0.6); padding: 4px 0 4px 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--yellow);">&#10003;</span>Live Q&A with David</li>
+          <li style="font-size: 14px; color: rgba(255,255,255,0.6); padding: 4px 0 4px 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--yellow);">&#10003;</span>Toxic Love book included</li>
+          <li style="font-size: 14px; color: rgba(255,255,255,0.6); padding: 4px 0 4px 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--yellow);">&#10003;</span>Personal Scorecard from David</li>
+          <li style="font-size: 14px; color: rgba(255,255,255,0.6); padding: 4px 0 4px 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--yellow);">&#10003;</span>First month of community at 50% off</li>
+        </ul>
+        <a href="#" class="btn-yellow">Join VIP</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- COMMUNITY -->
+<section class="page-section page-section-dark">
+  <div class="container">
+    <p class="section-label" style="margin-bottom: 32px;">Ongoing Support</p>
+    <div class="product-card" style="max-width: 700px; margin: 0 auto; text-align: center; border-color: var(--pink);">
+      <span class="price-tag price-high">Community</span>
+      <h3>Energy Vampire Blasters on Skool</h3>
+      <div class="product-price">$97<span style="font-size: 16px; font-weight: 400; opacity: 0.5;">/month</span></div>
+      <p style="max-width: 500px; margin-left: auto; margin-right: auto;">Weekly live coaching with David. Structured levels of awareness. Drip content from the Energy Vampire library. A community of people who are done tolerating the drain. 7-day free trial.</p>
+      <div style="margin-top: 8px;">
+        <a href="#" class="btn-primary" style="margin-right: 12px;">Join the Community</a>
+        <p style="font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 12px;">7-day free trial. Cancel anytime. $580/year (save 50%).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- NOT SURE? -->
+<section class="page-section page-section-mid" style="text-align: center;">
+  <div class="container">
+    <h2>Not Sure Where to Start?</h2>
+    <p style="max-width: 500px; margin: 0 auto 32px;">Take the free quiz. In 2 minutes, we'll tell you which Energy Vampires are draining your life and recommend the right next step for your situation.</p>
+    <a href="quiz.html" class="hero-cta">Take the Free Quiz</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <img src="logo-clean.jpg" alt="Energy Vampire Blasters">
+    <ul class="footer-links">
+      <li><a href="https://instagram.com/energyvampireblasters" target="_blank" rel="noopener">@energyvampireblasters</a></li>
+      <li><a href="https://instagram.com/iamdavidstrauss" target="_blank" rel="noopener">@iamdavidstrauss</a></li>
+      <li><a href="quiz.html">Take the Quiz</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="vision.html">The Vision</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Energy Vampires LLC. All Rights Reserved. Educational and entertainment purposes only. Not a substitute for professional therapy or medical treatment. energyvampireblasters.com</p>
+  </div>
+</footer>
+
+<script>
+function toggleNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+  document.querySelector('.nav-toggle').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobileNav').classList.contains('open') ? 'hidden' : '';
+}
+function closeNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.querySelector('.nav-toggle').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>

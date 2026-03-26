@@ -239,13 +239,18 @@ Start collecting evidence now:
 - Yellow: Wins / Testimonials
 - Lavender: Quiz / Free Stuff
 
-### Website (energyvampireblasters.com)
+### Website (energyvampireblasters.com) -- "Neon Warrior" Direction
 
-- **Hero section:** Full-width dark (#1A1A1A) background, Hot Pink H1 headline, Warm White subtitle, Hot Pink CTA button
-- **Content sections:** Alternate between Warm White and EVB Black backgrounds
-- **Navigation:** Black bar, white text, Hot Pink on hover
-- **Footer:** EVB Black, Cyan links, Yellow social icons
-- **Cards:** Light Lavender background, rounded corners (8px), subtle shadow
+**Design direction chosen (Session 66, Mar 2026):** Dark editorial with electric accents. Magazine-spread layouts on near-black backgrounds (#0a0a0a). Hot Pink + Cyan as neon accents. Yellow reserved for CTAs and highlight moments. Scroll progression moves dark-to-light (hero = in the drain, middle = awakening, bottom = liberation). Inspired by tonyrobbins.com (dark hero energy), onepeloton.com (neon accents on dark), danielle-laporte.com (editorial quality). The word "BLASTERS" demands kinetic energy -- this direction delivers it.
+
+- **Hero section:** Deep black (#0a0a0a) with subtle radial color glows (pink at 6% opacity, cyan at 4%). Hook question as H1 in white, emphasis words in Hot Pink. Dual CTAs: primary (Detection Kit) in Hot Pink, secondary (Quiz) in outlined Cyan.
+- **Content sections:** Alternate between #0a0a0a (deep black) and #1A1A1A (dark). No warm white sections -- the entire site is dark. Breathing room comes from spacing and opacity, not light backgrounds.
+- **Navigation:** Sticky glassmorphism bar (rgba black at 92% + blur). White text at 60% opacity, Hot Pink on hover. Hot Pink CTA button. Mobile: hamburger with full-screen dark overlay.
+- **Footer:** Deep black, Cyan links, Hot Pink on hover.
+- **Cards:** Dark glass (rgba white at 3%), 1px border at rgba white 6-8%, border-color transitions to Cyan on hover with subtle glow (box-shadow).
+- **Typography treatment:** Oversized Montserrat 900 weight for hero hook (44-46px desktop). Step numbers in Montserrat 900 at 48px with 20% opacity as watermarks. Section labels in 12px uppercase with 3px letter-spacing.
+- **Buttons:** All uppercase, 1px letter-spacing. Primary: Hot Pink fill. Secondary: outlined with brand color border. CTA emphasis: Yellow fill with black text.
+- **Accent details:** Subtle radial gradients behind key sections (pink for hero, yellow for detection kit). No hard dividers -- sections distinguished by background shade shifts.
 
 ### PDFs and Downloads
 

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Success Stories | Energy Vampire Blasters</title>
+<meta name="description" content="Real stories from real people who identified their energy vampires and reclaimed their power. See what's possible when you stop tolerating the drain.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.testimonial-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 36px;
+  margin-bottom: 24px;
+  transition: border-color 0.3s;
+}
+.testimonial-card:hover { border-color: var(--pink); }
+.testimonial-quote {
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 24px;
+  border-left: 3px solid var(--pink);
+}
+.testimonial-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,20,147,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--pink);
+}
+.testimonial-name {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+.testimonial-tag {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+}
+.testimonial-vampire {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-top: 4px;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.stat-card {
+  padding: 32px 16px;
+}
+.stat-num {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--pink);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+}
+@media (max-width: 900px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-num { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="nav-logo"><img src="logo-clean.jpg" alt="Energy Vampire Blasters"></a>
+    <ul class="nav-links">
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="vampire-types.html">Vampire Types</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="quiz.html" class="nav-cta">Take the Quiz</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="quiz.html" onclick="closeNav()">Take the Quiz</a>
+  <a href="about.html" onclick="closeNav()">About</a>
+  <a href="shop.html" onclick="closeNav()">Shop</a>
+  <a href="vampire-types.html" onclick="closeNav()">Vampire Types</a>
+  <a href="blog.html" onclick="closeNav()">Blog</a>
+  <a href="press.html" onclick="closeNav()">Press</a>
+  <a href="vision.html" onclick="closeNav()">The Vision</a>
+  <a href="start-here.html" onclick="closeNav()">New Here?</a>
+  <a href="quiz.html" class="mobile-cta" onclick="closeNav()">Take the Free Quiz</a>
+</div>
+
+<!-- HEADER -->
+<section class="page-header" style="text-align: center;">
+  <div class="container">
+    <p class="section-label">Success Stories</p>
+    <h1>Real People. Real <span>Transformations.</span></h1>
+    <p class="lead" style="max-width: 560px; margin: 0 auto;">These are the stories of people who identified the energy vampires in their lives and decided to do something about it. No actors. No scripts. Just real people who stopped tolerating the drain.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- STATS -->
+<section class="page-section page-section-mid">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">200+</div>
+        <div class="stat-label">Workshop Attendees</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">13</div>
+        <div class="stat-label">Vampire Types Identified</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">60+</div>
+        <div class="stat-label">Pieces of Original Content</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Major Network Features</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- TESTIMONIALS -->
+<section class="page-section page-section-dark">
+  <div class="container" style="max-width: 750px;">
+
+    <div class="testimonial-card">
+      <p class="testimonial-quote">"I finally have words for what I've been feeling my whole life. The Energy Vampire framework gave me permission to name what was happening and stop pretending it was normal. I'm not crazy. I was being drained."</p>
+      <div class="testimonial-meta">
+        <div class="testimonial-avatar">S</div>
+        <div>
+          <div class="testimonial-name">Sarah M.</div>
+          <div class="testimonial-tag">EVB Community Member</div>
+          <span class="testimonial-vampire" style="background: rgba(255,20,147,0.1); color: var(--pink);">Identified: The Blamer</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-quote">"The weekly calls with David are the highlight of my week. He doesn't sugarcoat anything, but he says it with so much warmth that you actually want to hear the hard truth. I've never had a coach like that."</p>
+      <div class="testimonial-meta">
+        <div class="testimonial-avatar">J</div>
+        <div>
+          <div class="testimonial-name">Jennifer R.</div>
+          <div class="testimonial-tag">7-Day Challenge Graduate</div>
+          <span class="testimonial-vampire" style="background: rgba(0,200,232,0.1); color: var(--cyan);">Identified: The Drama Queen</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-quote">"This community saved me from going back to my ex. Again. The third time I almost went back, I posted in the group and within an hour I had 15 people reminding me why I left. That's not a community. That's a lifeline."</p>
+      <div class="testimonial-meta">
+        <div class="testimonial-avatar">M</div>
+        <div>
+          <div class="testimonial-name">Maria L.</div>
+          <div class="testimonial-tag">EVB Community Member</div>
+          <span class="testimonial-vampire" style="background: rgba(255,215,0,0.1); color: var(--yellow);">Identified: The Taker</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-quote">"The Inner Vampire module hit me like a truck. I'd spent years blaming other people for my unhappiness, and then David walks me through the exercise and I realize the loudest vampire in my life was me. That was Day 4. By Day 7, I had a plan."</p>
+      <div class="testimonial-meta">
+        <div class="testimonial-avatar">K</div>
+        <div>
+          <div class="testimonial-name">Karen T.</div>
+          <div class="testimonial-tag">7-Day Challenge VIP</div>
+          <span class="testimonial-vampire" style="background: rgba(255,20,147,0.1); color: var(--pink);">Identified: The Inner Vampire</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-quote">"I took the quiz thinking it was just a fun Instagram thing. Turns out it was the most accurate personality test I've ever taken. Shared my result with three friends and they all took it the same day. We talk about our vampire types like zodiac signs now."</p>
+      <div class="testimonial-meta">
+        <div class="testimonial-avatar">A</div>
+        <div>
+          <div class="testimonial-name">Ashley D.</div>
+          <div class="testimonial-tag">Quiz Taker</div>
+          <span class="testimonial-vampire" style="background: rgba(0,200,232,0.1); color: var(--cyan);">Identified: The Life Blocker</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-quote">"David's book made me cry, laugh, and set a boundary with my mother all in the same week. I didn't think a book about 'energy vampires' would be the thing that finally gave me the guts to have that conversation. But here we are."</p>
+      <div class="testimonial-meta">
+        <div class="testimonial-avatar">R</div>
+        <div>
+          <div class="testimonial-name">Rachel W.</div>
+          <div class="testimonial-tag">Book Reader</div>
+          <span class="testimonial-vampire" style="background: rgba(255,215,0,0.1); color: var(--yellow);">Identified: The Blamer</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- SHARE YOUR STORY -->
+<section class="page-section page-section-mid" style="text-align: center;">
+  <div class="container">
+    <h2>Have a Story to Share?</h2>
+    <p style="max-width: 500px; margin: 0 auto 24px;">If EVB has helped you identify and blast the energy vampires in your life, we'd love to hear about it. Your story might be the one that helps someone else take the first step.</p>
+    <p style="color: var(--cyan); font-family: var(--font-heading); font-weight: 600;">stories@energyvampireblasters.com</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CTA -->
+<section class="page-section page-section-dark" style="text-align: center;">
+  <div class="container">
+    <h2>Ready to Write Your Own Story?</h2>
+    <p style="max-width: 500px; margin: 0 auto 32px;">Start with the free quiz. Find your vampire. Take the challenge. Join the community. Your transformation starts with one click.</p>
+    <a href="quiz.html" class="hero-cta">Take the Free Quiz</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <img src="logo-clean.jpg" alt="Energy Vampire Blasters">
+    <ul class="footer-links">
+      <li><a href="https://instagram.com/energyvampireblasters" target="_blank" rel="noopener">@energyvampireblasters</a></li>
+      <li><a href="https://instagram.com/iamdavidstrauss" target="_blank" rel="noopener">@iamdavidstrauss</a></li>
+      <li><a href="quiz.html">Take the Quiz</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="vision.html">The Vision</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Energy Vampires LLC. All Rights Reserved. Educational and entertainment purposes only. Not a substitute for professional therapy or medical treatment. energyvampireblasters.com</p>
+  </div>
+</footer>
+
+<script>
+function toggleNav(){document.getElementById('mobileNav').classList.toggle('open');document.querySelector('.nav-toggle').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileNav').classList.contains('open')?'hidden':'';}
+function closeNav(){document.getElementById('mobileNav').classList.remove('open');document.querySelector('.nav-toggle').classList.remove('open');document.body.style.overflow='';}
+</script>
+</body>
+</html>

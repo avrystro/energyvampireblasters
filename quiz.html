@@ -4,92 +4,257 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Which Energy Vampire Is Draining You? | Free Quiz</title>
-<meta name="description" content="Take the free Energy Vampire Quiz to discover which type of Energy Vampire is draining your life. 2-minute quiz from David Lloyd Strauss, The Energy Vampire Coach.">
+<meta name="description" content="Take the free 2-minute Energy Vampire Quiz. Find out which of the 5 vampire types is draining your life and get a personalized plan to blast them out.">
 <meta property="og:title" content="Which Energy Vampire Is Draining You?">
 <meta property="og:description" content="Take the 2-minute quiz to find out which Energy Vampire is stealing your energy, your peace, and your power.">
 <meta property="og:type" content="website">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --pink: #FF1493;
-    --yellow: #FFD700;
-    --cyan: #00C8E8;
-    --black: #1a1a1a;
-    --gray-600: #666666;
-    --gray-400: #999999;
-    --gray-200: #e8e8e8;
-    --gray-100: #f5f5f5;
-    --white: #ffffff;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Source Sans 3', sans-serif; color: var(--black); background: var(--white); min-height: 100vh; }
-  h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
-  .quiz-wrapper { max-width: 640px; margin: 0 auto; padding: 40px 24px; min-height: 100vh; display: flex; flex-direction: column; }
-  .quiz-header { text-align: center; margin-bottom: 40px; }
-  .quiz-header img { height: 44px; margin-bottom: 24px; }
-  .quiz-header h1 { font-size: 32px; font-weight: 900; line-height: 1.2; margin-bottom: 12px; }
-  .quiz-header h1 span { color: var(--pink); }
-  .quiz-header p { font-size: 17px; color: var(--gray-600); font-weight: 300; }
-  .progress-container { margin-bottom: 32px; }
-  .progress-text { display: flex; justify-content: space-between; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; color: var(--gray-400); margin-bottom: 8px; }
-  .progress-bar { height: 6px; background: var(--gray-200); border-radius: 100px; overflow: hidden; }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--pink), var(--cyan)); border-radius: 100px; transition: width 0.4s ease; width: 0%; }
-  .question-card { flex: 1; display: none; }
-  .question-card.active { display: block; }
-  .question-number { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-bottom: 12px; }
-  .question-text { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 28px; }
-  .options { display: flex; flex-direction: column; gap: 12px; }
-  .option { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border: 2px solid var(--gray-200); border-radius: 12px; cursor: pointer; transition: all 0.2s; font-size: 16px; line-height: 1.5; color: var(--black); }
-  .option:hover { border-color: var(--cyan); background: rgba(0,200,232,0.04); }
-  .option.selected { border-color: var(--pink); background: rgba(255,20,147,0.06); }
-  .option-letter { width: 32px; height: 32px; min-width: 32px; border-radius: 50%; background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; color: var(--gray-600); transition: all 0.2s; }
-  .option.selected .option-letter { background: var(--pink); color: white; }
-  .quiz-nav { display: flex; justify-content: space-between; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--gray-200); }
-  .btn-back { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; color: var(--gray-400); background: none; border: none; cursor: pointer; padding: 12px 0; }
-  .btn-back:hover { color: var(--black); }
-  .btn-next { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; color: white; background: var(--pink); border: none; padding: 14px 32px; border-radius: 8px; cursor: pointer; transition: background 0.2s, transform 0.2s; opacity: 0.4; pointer-events: none; }
-  .btn-next.enabled { opacity: 1; pointer-events: all; }
-  .btn-next:hover { background: #e0117f; transform: translateY(-1px); }
-  #email-gate { display: none; text-align: center; flex: 1; }
-  #email-gate h2 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
-  #email-gate h2 span { color: var(--pink); }
-  #email-gate p { font-size: 16px; color: var(--gray-600); margin-bottom: 28px; line-height: 1.7; }
-  .email-input { width: 100%; padding: 16px 20px; border: 2px solid var(--gray-200); border-radius: 10px; font-size: 16px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 14px; outline: none; transition: border-color 0.2s; }
-  .email-input:focus { border-color: var(--cyan); }
-  .btn-reveal { width: 100%; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: white; background: var(--pink); border: none; padding: 16px; border-radius: 10px; cursor: pointer; transition: background 0.2s; }
-  .btn-reveal:hover { background: #e0117f; }
-  .email-skip { display: block; margin-top: 14px; font-size: 13px; color: var(--gray-400); cursor: pointer; background: none; border: none; font-family: 'Source Sans 3', sans-serif; }
-  #result { display: none; text-align: center; flex: 1; }
-  .result-card { background: var(--white); border: 3px solid var(--black); border-radius: 20px; padding: 40px 32px; margin-bottom: 32px; position: relative; overflow: hidden; }
-  .result-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--pink), var(--cyan), var(--yellow)); }
-  .result-label { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 8px; }
-  .result-type { font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 900; color: var(--pink); margin-bottom: 16px; line-height: 1.1; }
-  .result-description { font-size: 16px; color: var(--gray-600); line-height: 1.7; margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
-  .result-stat { display: inline-block; background: var(--gray-100); border-radius: 100px; padding: 8px 20px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 20px; }
-  .result-stat span { color: var(--pink); font-weight: 800; }
-  .result-branding { display: flex; align-items: center; justify-content: center; gap: 10px; padding-top: 16px; border-top: 1px solid var(--gray-200); }
-  .result-branding img { height: 28px; }
-  .result-branding span { font-size: 12px; color: var(--gray-400); }
-  .share-prompt { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 12px; }
-  .share-buttons { display: flex; gap: 10px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
-  .share-btn { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px; padding: 10px 20px; border-radius: 8px; border: 2px solid var(--gray-200); background: white; cursor: pointer; transition: all 0.2s; color: var(--black); }
-  .share-btn:hover { border-color: var(--pink); color: var(--pink); }
-  .result-ctas { display: flex; flex-direction: column; gap: 12px; }
-  .result-cta-primary { display: block; background: var(--pink); color: white; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 16px; border-radius: 10px; text-align: center; transition: background 0.2s; text-decoration: none; }
-  .result-cta-primary:hover { background: #e0117f; }
-  .result-cta-secondary { display: block; background: var(--black); color: white; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 16px; border-radius: 10px; text-align: center; transition: background 0.2s; text-decoration: none; }
-  .result-cta-secondary:hover { background: #333; }
-  .retake { display: inline-block; margin-top: 20px; font-size: 14px; color: var(--gray-400); cursor: pointer; background: none; border: none; font-family: 'Source Sans 3', sans-serif; }
-  .retake:hover { color: var(--pink); }
+:root {
+  --pink: #FF1493;
+  --pink-dark: #d4107a;
+  --yellow: #FFD700;
+  --cyan: #00C8E8;
+  --black: #1A1A1A;
+  --deep-black: #0a0a0a;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font-body);
+  color: #e0e0e0;
+  background: var(--deep-black);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-heading); line-height: 1.2; }
+
+.quiz-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.quiz-header { text-align: center; margin-bottom: 40px; }
+.quiz-header img { height: 44px; margin: 0 auto 24px; display: block; }
+.quiz-header h1 { font-size: 30px; font-weight: 900; color: white; margin-bottom: 12px; }
+.quiz-header h1 span { color: var(--pink); }
+.quiz-header p { font-size: 16px; color: rgba(255,255,255,0.5); }
+.quiz-header a { color: rgba(255,255,255,0.4); font-size: 13px; transition: color 0.2s; }
+.quiz-header a:hover { color: var(--cyan); }
+
+/* Progress */
+.progress-container { margin-bottom: 32px; }
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 8px;
+}
+.progress-bar { height: 4px; background: rgba(255,255,255,0.06); border-radius: 100px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--pink), var(--cyan)); border-radius: 100px; transition: width 0.4s ease; width: 0%; }
+
+/* Questions */
+.question-card { flex: 1; display: none; }
+.question-card.active { display: block; }
+.question-number {
+  font-family: var(--font-heading); font-size: 12px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-bottom: 12px;
+}
+.question-text { font-family: var(--font-heading); font-size: 22px; font-weight: 700; color: white; line-height: 1.4; margin-bottom: 28px; }
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option {
+  display: flex; align-items: center; gap: 14px; padding: 16px 20px;
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;
+  cursor: pointer; transition: all 0.2s; font-size: 15px; line-height: 1.5;
+  color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.02);
+  text-decoration: none;
+}
+.option:hover { border-color: rgba(0,200,232,0.3); background: rgba(0,200,232,0.04); }
+.option.selected { border-color: var(--pink); background: rgba(255,20,147,0.08); color: white; }
+.option-letter {
+  width: 32px; height: 32px; min-width: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading); font-weight: 700; font-size: 13px;
+  color: rgba(255,255,255,0.35); transition: all 0.2s;
+}
+.option.selected .option-letter { background: var(--pink); color: white; }
+
+/* Navigation */
+.quiz-nav {
+  display: flex; justify-content: space-between; margin-top: 32px;
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06);
+}
+.btn-back {
+  font-family: var(--font-heading); font-weight: 600; font-size: 14px;
+  color: rgba(255,255,255,0.35); background: none; border: none; cursor: pointer; padding: 12px 0;
+}
+.btn-back:hover { color: white; }
+.btn-next {
+  font-family: var(--font-heading); font-weight: 700; font-size: 15px;
+  color: white; background: var(--pink); border: none; padding: 14px 32px;
+  border-radius: 8px; cursor: pointer; transition: all 0.2s; opacity: 0.3; pointer-events: none;
+}
+.btn-next.enabled { opacity: 1; pointer-events: all; }
+.btn-next:hover { background: var(--pink-dark); transform: translateY(-1px); }
+
+/* Email Gate */
+#email-gate { display: none; text-align: center; flex: 1; padding-top: 40px; }
+#email-gate h2 { font-size: 28px; font-weight: 900; color: white; margin-bottom: 12px; }
+#email-gate h2 span { color: var(--pink); }
+#email-gate > p { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 28px; line-height: 1.7; max-width: 440px; margin-left: auto; margin-right: auto; }
+.email-input {
+  width: 100%; padding: 16px 20px; border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px; font-size: 16px; font-family: var(--font-body);
+  margin-bottom: 14px; outline: none; transition: border-color 0.2s;
+  background: rgba(255,255,255,0.04); color: white;
+}
+.email-input::placeholder { color: rgba(255,255,255,0.3); }
+.email-input:focus { border-color: var(--cyan); }
+.btn-reveal {
+  width: 100%; font-family: var(--font-heading); font-weight: 800; font-size: 15px;
+  color: white; background: var(--pink); border: none; padding: 16px;
+  border-radius: 8px; cursor: pointer; transition: all 0.2s;
+  letter-spacing: 0.5px; text-transform: uppercase;
+}
+.btn-reveal:hover { background: var(--pink-dark); }
+.email-skip {
+  display: block; margin: 14px auto 0; font-size: 13px; color: rgba(255,255,255,0.3);
+  cursor: pointer; background: none; border: none; font-family: var(--font-body);
+}
+.email-skip:hover { color: rgba(255,255,255,0.5); }
+
+/* Result */
+#result { display: none; text-align: center; flex: 1; }
+
+.result-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 48px 36px 40px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.result-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pink), var(--cyan), var(--yellow));
+}
+
+.result-label {
+  font-family: var(--font-heading); font-size: 11px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 12px;
+}
+.result-type {
+  font-family: var(--font-heading); font-size: 40px; font-weight: 900;
+  margin-bottom: 20px; line-height: 1.1;
+}
+.result-tagline {
+  font-family: var(--font-heading); font-size: 16px; font-weight: 600;
+  font-style: italic; margin-bottom: 20px; line-height: 1.5;
+  color: rgba(255,255,255,0.7);
+}
+.result-description {
+  font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.7;
+  margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto;
+}
+.result-stat {
+  display: inline-block; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px; padding: 8px 20px;
+  font-family: var(--font-heading); font-size: 13px; font-weight: 600;
+  color: rgba(255,255,255,0.5); margin-bottom: 20px;
+}
+.result-stat span { font-weight: 800; }
+.result-branding {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06);
+}
+.result-branding img { height: 28px; }
+.result-branding span { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+/* Share */
+.share-prompt {
+  font-family: var(--font-heading); font-size: 14px; font-weight: 700;
+  color: rgba(255,255,255,0.6); margin-bottom: 12px;
+}
+.share-buttons { display: flex; gap: 10px; justify-content: center; margin-bottom: 12px; flex-wrap: wrap; }
+.share-btn {
+  font-family: var(--font-heading); font-weight: 600; font-size: 12px; letter-spacing: 0.5px;
+  padding: 10px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03); cursor: pointer; transition: all 0.2s;
+  color: rgba(255,255,255,0.5);
+}
+.share-btn:hover { border-color: var(--pink); color: var(--pink); }
+
+.share-text-box {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 16px; margin-bottom: 28px; text-align: left;
+  position: relative; display: none;
+}
+.share-text-box p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0; }
+.share-text-box .copy-btn {
+  position: absolute; top: 12px; right: 12px; font-family: var(--font-heading);
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--cyan); background: none; border: 1px solid var(--cyan);
+  padding: 4px 12px; border-radius: 4px; cursor: pointer;
+}
+.share-text-box .copy-btn:hover { background: var(--cyan); color: var(--deep-black); }
+
+/* CTAs */
+.result-ctas { display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto; }
+.result-cta-primary {
+  display: block; background: var(--pink); color: white;
+  font-family: var(--font-heading); font-weight: 800; font-size: 14px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  padding: 16px; border-radius: 8px; text-align: center;
+  transition: all 0.2s; text-decoration: none;
+}
+.result-cta-primary:hover { background: var(--pink-dark); transform: translateY(-1px); }
+.result-cta-secondary {
+  display: block; background: rgba(255,255,255,0.04); color: var(--cyan);
+  border: 1px solid rgba(0,200,232,0.2);
+  font-family: var(--font-heading); font-weight: 700; font-size: 14px;
+  padding: 16px; border-radius: 8px; text-align: center;
+  transition: all 0.2s; text-decoration: none;
+}
+.result-cta-secondary:hover { background: rgba(0,200,232,0.08); }
+.retake {
+  display: inline-block; margin-top: 24px; font-size: 13px;
+  color: rgba(255,255,255,0.3); cursor: pointer; background: none; border: none;
+  font-family: var(--font-body);
+}
+.retake:hover { color: var(--pink); }
+
+@media (max-width: 480px) {
+  .quiz-header h1 { font-size: 24px; }
+  .question-text { font-size: 19px; }
+  .result-type { font-size: 30px; }
+  .result-card { padding: 36px 24px 32px; }
+}
 </style>
 </head>
 <body>
 
 <div class="quiz-wrapper">
   <div class="quiz-header">
-    <img src="logo-clean.jpg" alt="Energy Vampire Blasters">
+    <a href="/"><img src="logo-clean.jpg" alt="Energy Vampire Blasters"></a>
     <h1>Which Energy Vampire Is <span>Draining You?</span></h1>
-    <p>Answer 10 quick questions. Takes 2 minutes.</p>
+    <p>10 questions. 2 minutes. Find out what's stealing your energy.</p>
   </div>
 
   <div class="progress-container">
@@ -110,35 +275,41 @@
   </div>
 
   <div id="email-gate">
-    <h2>Your results are <span>ready</span></h2>
-    <p>We identified your #1 Energy Vampire. Enter your email to reveal your result and get the free Energy Vampire Detection Kit.</p>
-    <input type="email" class="email-input" id="quiz-email" placeholder="Enter your email">
-    <button class="btn-reveal" onclick="revealResults()">Reveal My Energy Vampire</button>
-    <button class="email-skip" onclick="revealResults()">Skip and see results</button>
+    <h2>Your vampire is <span>revealed</span></h2>
+    <p>We know which Energy Vampire is draining you. Enter your email to see your result, get your personalized Vampire Profile, and the free Detection Kit.</p>
+    <input type="email" class="email-input" id="quiz-email" placeholder="Your email address" aria-label="Email address">
+    <button class="btn-reveal" onclick="revealResults()">Show Me My Vampire</button>
+    <button class="email-skip" onclick="revealResults()">Skip for now</button>
   </div>
 
   <div id="result">
     <div class="result-card" id="result-card">
       <p class="result-label">Your #1 Energy Vampire Is</p>
       <h2 class="result-type" id="result-type"></h2>
+      <p class="result-tagline" id="result-tagline"></p>
       <p class="result-description" id="result-description"></p>
       <div class="result-stat">Your match: <span id="result-pct"></span></div>
       <div class="result-branding">
         <img src="logo-clean.jpg" alt="EVB">
-        <span>energyvampireblasters.com</span>
+        <span>energyvampireblasters.com/quiz</span>
       </div>
     </div>
 
-    <p class="share-prompt">Share your result</p>
+    <p class="share-prompt">Share your result with friends</p>
     <div class="share-buttons">
-      <button class="share-btn" onclick="shareResult('screenshot')">Screenshot + Share</button>
-      <button class="share-btn" onclick="shareResult('copy')">Copy Link</button>
-      <button class="share-btn" onclick="shareResult('stories')">Instagram Stories</button>
+      <button class="share-btn" onclick="showShareText()">Copy Share Text</button>
+      <button class="share-btn" onclick="copyLink()">Copy Quiz Link</button>
+      <button class="share-btn" onclick="shareNative()">Share</button>
+    </div>
+
+    <div class="share-text-box" id="share-text-box">
+      <button class="copy-btn" onclick="copyShareText()">Copy</button>
+      <p id="share-text-content"></p>
     </div>
 
     <div class="result-ctas">
-      <a href="guide.html" class="result-cta-primary">Get the Free Energy Vampire Detection Kit</a>
-      <a href="index.html#challenge" class="result-cta-secondary">Take the 7-Day Blaster Challenge</a>
+      <a href="shop.html" class="result-cta-primary">Get the Free Detection Kit</a>
+      <a href="shop.html#challenge" class="result-cta-secondary">Take the 7-Day Blaster Challenge</a>
     </div>
 
     <button class="retake" onclick="retakeQuiz()">Retake Quiz</button>
@@ -146,35 +317,32 @@
 </div>
 
 <script>
-// NOTE: All user-facing text is set via textContent (safe from XSS).
-// DOM is built with createElement, not innerHTML.
-
 var questions = [
   { q: "After a conversation with someone close to you, how do you usually feel?", options: [
-    { text: "Drained -- like they took something from me", type: "taker" },
+    { text: "Drained \u2014 like they took something from me", type: "taker" },
     { text: "Exhausted from their endless drama and crises", type: "drama" },
-    { text: "Guilty -- like everything is somehow my fault", type: "blamer" },
-    { text: "Numb -- I scroll my phone to decompress", type: "scroll" },
-    { text: "Defeated -- my own thoughts are louder than theirs", type: "inner" }
+    { text: "Guilty \u2014 like everything is somehow my fault", type: "blamer" },
+    { text: "Numb \u2014 I scroll my phone to decompress", type: "scroll" },
+    { text: "Defeated \u2014 my own thoughts are louder than theirs", type: "inner" }
   ]},
   { q: "When something good happens in your life, what\u2019s the first thing you think?", options: [
     { text: "I wonder how they\u2019ll make this about them", type: "taker" },
     { text: "I can\u2019t celebrate because they\u2019re in crisis again", type: "drama" },
-    { text: "It probably won\u2019t last -- something will go wrong", type: "inner" },
+    { text: "It probably won\u2019t last \u2014 something will go wrong", type: "inner" },
     { text: "I immediately check my phone instead of sitting with the joy", type: "scroll" },
     { text: "Someone will find a way to blame me for something", type: "blamer" }
   ]},
   { q: "How often do you catch yourself apologizing when you\u2019ve done nothing wrong?", options: [
-    { text: "Constantly -- I apologize for existing", type: "blamer" },
+    { text: "Constantly \u2014 I apologize for existing", type: "blamer" },
     { text: "Only when they make me feel like I owe them something", type: "taker" },
     { text: "When they create a scene and I\u2019m trying to calm things down", type: "drama" },
-    { text: "I don\u2019t apologize -- I just go quiet and withdraw into my phone", type: "scroll" },
-    { text: "I apologize to myself... for not being good enough", type: "inner" }
+    { text: "I don\u2019t apologize \u2014 I just go quiet and withdraw into my phone", type: "scroll" },
+    { text: "I apologize to myself\u2026 for not being good enough", type: "inner" }
   ]},
   { q: "What does your inner voice sound like most of the time?", options: [
     { text: "\"Why do I keep letting them use me?\"", type: "taker" },
     { text: "\"I can\u2019t take this drama anymore\"", type: "drama" },
-    { text: "\"Maybe they\u2019re right -- maybe it IS my fault\"", type: "blamer" },
+    { text: "\"Maybe they\u2019re right \u2014 maybe it IS my fault\"", type: "blamer" },
     { text: "\"I\u2019ll deal with it later\" (opens app)", type: "scroll" },
     { text: "\"I\u2019m not good enough. I\u2019ll never be enough.\"", type: "inner" }
   ]},
@@ -182,7 +350,7 @@ var questions = [
     { text: "They guilt-trip me or make me feel selfish", type: "taker" },
     { text: "They create a bigger crisis to pull me back in", type: "drama" },
     { text: "They flip it and blame me for being \"too sensitive\"", type: "blamer" },
-    { text: "I set the boundary... then break it myself by scrolling for 2 hours", type: "scroll" },
+    { text: "I set the boundary\u2026 then break it myself by scrolling for 2 hours", type: "scroll" },
     { text: "My own brain talks me out of it before I even try", type: "inner" }
   ]},
   { q: "What\u2019s your biggest energy drain right now?", options: [
@@ -190,18 +358,18 @@ var questions = [
     { text: "The constant chaos and emotional rollercoaster around me", type: "drama" },
     { text: "Feeling responsible for someone else\u2019s problems", type: "blamer" },
     { text: "My phone, social media, or other habits I can\u2019t stop", type: "scroll" },
-    { text: "My own thoughts -- the self-doubt, the criticism, the fear", type: "inner" }
+    { text: "My own thoughts \u2014 the self-doubt, the criticism, the fear", type: "inner" }
   ]},
   { q: "How do you feel right before you\u2019re about to see or talk to this person?", options: [
-    { text: "Anxious -- I never know what they\u2019ll want from me", type: "taker" },
-    { text: "Tired -- I already know it\u2019s going to be a production", type: "drama" },
-    { text: "Defensive -- I\u2019m bracing for what I\u2019ll be blamed for", type: "blamer" },
-    { text: "I don\u2019t feel anything -- I\u2019ve gone numb", type: "scroll" },
+    { text: "Anxious \u2014 I never know what they\u2019ll want from me", type: "taker" },
+    { text: "Tired \u2014 I already know it\u2019s going to be a production", type: "drama" },
+    { text: "Defensive \u2014 I\u2019m bracing for what I\u2019ll be blamed for", type: "blamer" },
+    { text: "I don\u2019t feel anything \u2014 I\u2019ve gone numb", type: "scroll" },
     { text: "I feel small before the conversation even starts", type: "inner" }
   ]},
   { q: "If you could change one thing about your life right now, what would it be?", options: [
     { text: "I\u2019d stop letting people take advantage of my kindness", type: "taker" },
-    { text: "I\u2019d have peace -- no more drama, no more chaos", type: "drama" },
+    { text: "I\u2019d have peace \u2014 no more drama, no more chaos", type: "drama" },
     { text: "I\u2019d stop feeling guilty for things that aren\u2019t my fault", type: "blamer" },
     { text: "I\u2019d put my phone down and actually be present", type: "scroll" },
     { text: "I\u2019d believe in myself again", type: "inner" }
@@ -210,7 +378,7 @@ var questions = [
     { text: "Replaying conversations where they manipulated me", type: "taker" },
     { text: "Worrying about what crisis will come next", type: "drama" },
     { text: "Wondering if everything really IS my fault", type: "blamer" },
-    { text: "Nothing -- I scroll until I fall asleep", type: "scroll" },
+    { text: "Nothing \u2014 I scroll until I fall asleep", type: "scroll" },
     { text: "Beating myself up for not being better, stronger, more", type: "inner" }
   ]},
   { q: "What brought you to this quiz today?", options: [
@@ -223,11 +391,41 @@ var questions = [
 ];
 
 var resultData = {
-  taker: { name: "The Taker", description: "Your #1 Energy Vampire is The Taker -- the narcissist who is all about what they can get, never what they can give. They charm you, make you feel needed, then drain you dry. They push boundaries, manipulate your emotions, and make you feel selfish for having needs of your own. The good news? Once you see the pattern, it loses its power.", color: "#FF1493" },
-  drama: { name: "The Drama Queen", description: "Your #1 Energy Vampire is The Drama Queen -- the black hole of attention. Their life is an endless soap opera, and you're the audience. Every conversation is a crisis. Every moment is urgent. They don't want solutions -- they want an audience. You've been their emotional 911, and it's time to hang up the phone.", color: "#00C8E8" },
-  blamer: { name: "The Blamer", description: "Your #1 Energy Vampire is The Blamer -- the person who never takes responsibility for anything, ever. Nothing is their fault, but somehow everything is yours. They've made you carry weight that was never yours to carry, and you've started believing their version of reality. It's time to put that weight down.", color: "#FFD700" },
-  scroll: { name: "The Scroll Hole", description: "Your #1 Energy Vampire isn't a person -- it's a habit. The Scroll Hole is the addiction to social media, news, food, shopping, or whatever you use to numb yourself from pain. You pick up your phone to 'check one thing' and 45 minutes later, you feel worse. This vampire doesn't drain your blood -- it drains your time, focus, and self-worth.", color: "#00C8E8" },
-  inner: { name: "The Inner Vampire", description: "Your #1 Energy Vampire is YOU. The Inner Vampire is the negative self-talk, the self-doubt, the voice that says 'you're not good enough.' This is the vampire you didn't see coming -- because it lives inside your own head. Every other vampire in your life feeds off the weakness of your Inner Vampire. Slay this one, and the rest lose their power.", color: "#FF1493" }
+  taker: {
+    name: "The Taker",
+    tagline: "You know that friend who always \"forgot their wallet\"? Yeah. That\u2019s an energy vampire. And you\u2019ve been picking up the tab \u2014 emotionally \u2014 for way too long.",
+    description: "The Taker treats every relationship like a transaction where they always come out ahead. They charm you, make you feel needed, then drain you dry. They borrow without returning, need favors constantly, and vanish when you need help. The good news? Once you see the pattern, it loses its power over you.",
+    color: "#FF1493",
+    shareText: "My #1 Energy Vampire is The Taker. Apparently I\u2019ve been running an emotional charity and didn\u2019t even know it. Time to close the donation center."
+  },
+  drama: {
+    name: "The Drama Queen",
+    tagline: "Their life is an endless soap opera and you\u2019ve been buying the popcorn. Time to cancel your subscription.",
+    description: "The Drama Queen is the black hole of attention. Every conversation is a crisis. Every moment is urgent. They don\u2019t want solutions \u2014 they want an audience. You\u2019ve been their emotional 911, and it\u2019s time to hang up the phone.",
+    color: "#00C8E8",
+    shareText: "My #1 Energy Vampire is The Drama Queen. Turns out I\u2019ve been a full-time therapist without the degree or the paycheck. New policy: I charge by the hour."
+  },
+  blamer: {
+    name: "The Blamer",
+    tagline: "Nothing is ever their fault. But somehow you\u2019re apologizing for things you didn\u2019t do. Sound familiar?",
+    description: "The Blamer never takes responsibility for anything. They\u2019ve got an excuse for everything and somehow you end up carrying weight that was never yours. You\u2019ve started believing their version of reality. It\u2019s time to put that weight down.",
+    color: "#FFD700",
+    shareText: "My #1 Energy Vampire is The Blamer. I\u2019ve been apologizing for things I didn\u2019t do since I can\u2019t remember when. Today that stops."
+  },
+  scroll: {
+    name: "The Life Blocker",
+    tagline: "Plot twist: your energy vampire isn\u2019t a person. It\u2019s the 2am doom scroll, the comfort eating, and the \"I\u2019ll start tomorrow\" that never comes.",
+    description: "The Life Blocker isn\u2019t a person \u2014 it\u2019s a pattern. The habits you\u2019ve normalized that drain your time, your health, and your self-worth. You pick up your phone to \"check one thing\" and 45 minutes later, you feel worse. This vampire doesn\u2019t drain your blood \u2014 it drains your focus.",
+    color: "#00C8E8",
+    shareText: "My #1 Energy Vampire is The Life Blocker. My screen time report just became a crime scene. Witness protection program starts now."
+  },
+  inner: {
+    name: "The Inner Vampire",
+    tagline: "Plot twist of all plot twists: your #1 energy vampire is\u2026 you. Specifically, that voice in your head that sounds like a disappointed parent at a talent show.",
+    description: "The Inner Vampire is the negative self-talk, the self-doubt, the voice that says \"you\u2019re not good enough.\" This is the vampire you didn\u2019t see coming \u2014 because it lives inside your own head. Every other vampire in your life feeds off the weakness this one creates. Slay this one, and the rest lose their power.",
+    color: "#FF1493",
+    shareText: "My #1 Energy Vampire is The Inner Vampire. Turns out the call was coming from inside the house the whole time. Time to evict my worst roommate \u2014 my own brain."
+  }
 };
 
 var currentQ = 0;
@@ -350,6 +548,8 @@ function showEmailGate() {
   document.getElementById('email-gate').style.display = 'block';
 }
 
+var winnerKey = '';
+
 function revealResults() {
   document.getElementById('email-gate').style.display = 'none';
   var scores = { taker: 0, drama: 0, blamer: 0, scroll: 0, inner: 0 };
@@ -359,24 +559,50 @@ function revealResults() {
   for (var key in scores) {
     if (scores[key] > maxScore) { maxScore = scores[key]; winner = key; }
   }
+  winnerKey = winner;
   var pct = Math.round((maxScore / questions.length) * 100);
   var r = resultData[winner];
   var typeEl = document.getElementById('result-type');
   typeEl.textContent = r.name;
   typeEl.style.color = r.color;
+  document.getElementById('result-tagline').textContent = r.tagline;
   document.getElementById('result-description').textContent = r.description;
   document.getElementById('result-pct').textContent = pct + '%';
+  document.getElementById('result-pct').style.color = r.color;
+  document.getElementById('share-text-content').textContent = r.shareText + '\n\nTake the quiz: energyvampireblasters.com/quiz';
   document.getElementById('result').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function shareResult(method) {
-  if (method === 'copy') {
-    navigator.clipboard.writeText('I just found out which Energy Vampire is draining my life! Take the free quiz: ' + window.location.href).then(function() {
-      alert('Link copied! Share it with your friends.');
+function showShareText() {
+  var box = document.getElementById('share-text-box');
+  box.style.display = box.style.display === 'block' ? 'none' : 'block';
+}
+
+function copyShareText() {
+  var text = document.getElementById('share-text-content').textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    document.querySelector('.copy-btn').textContent = 'Copied!';
+    setTimeout(function() { document.querySelector('.copy-btn').textContent = 'Copy'; }, 2000);
+  });
+}
+
+function copyLink() {
+  navigator.clipboard.writeText('energyvampireblasters.com/quiz').then(function() {
+    alert('Quiz link copied!');
+  });
+}
+
+function shareNative() {
+  if (navigator.share) {
+    var r = resultData[winnerKey];
+    navigator.share({
+      title: 'My #1 Energy Vampire is ' + r.name,
+      text: r.shareText,
+      url: 'https://energyvampireblasters.com/quiz'
     });
   } else {
-    alert('Screenshot this result card and share it to your Instagram Stories! Tag @energyvampireblasters');
+    showShareText();
   }
 }
 
@@ -384,6 +610,7 @@ function retakeQuiz() {
   currentQ = 0;
   for (var i = 0; i < answers.length; i++) answers[i] = null;
   document.getElementById('result').style.display = 'none';
+  document.getElementById('share-text-box').style.display = 'none';
   document.getElementById('questions-container').style.display = 'block';
   document.getElementById('quiz-nav').style.display = 'flex';
   document.querySelector('.progress-container').style.display = 'block';
@@ -399,6 +626,5 @@ function retakeQuiz() {
 
 renderQuestions();
 </script>
-
 </body>
 </html>

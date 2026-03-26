@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Energy Vampire Blasters</title>
+<meta name="description" content="Articles, guides, and insights on identifying energy vampires, escaping toxic relationships, and reclaiming your power.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <a href="/" class="nav-logo"><img src="logo-clean.jpg" alt="Energy Vampire Blasters"></a>
+    <ul class="nav-links">
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="vampire-types.html">Vampire Types</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="quiz.html" class="nav-cta">Take the Quiz</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu" onclick="toggleNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="quiz.html" onclick="closeNav()">Take the Quiz</a>
+  <a href="about.html" onclick="closeNav()">About</a>
+  <a href="shop.html" onclick="closeNav()">Shop</a>
+  <a href="vampire-types.html" onclick="closeNav()">Vampire Types</a>
+  <a href="blog.html" onclick="closeNav()">Blog</a>
+  <a href="press.html" onclick="closeNav()">Press</a>
+  <a href="vision.html" onclick="closeNav()">The Vision</a>
+  <a href="start-here.html" onclick="closeNav()">New Here?</a>
+  <a href="quiz.html" class="mobile-cta" onclick="closeNav()">Take the Free Quiz</a>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <p class="section-label">The EVB Blog</p>
+    <h1>The EVB <span>Blog</span></h1>
+    <p class="lead">Insights, strategies, and stories to help you identify the energy vampires in your life and blast them out for good.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- FEATURED ARTICLE -->
+<section class="page-section page-section-mid">
+  <div class="container">
+    <a href="#" style="display:block; text-decoration:none; color:inherit;">
+      <div class="blog-card" style="max-width:100%;">
+        <div class="blog-card-body" style="padding:40px;">
+          <p class="blog-tag">ENERGY VAMPIRES</p>
+          <h2 style="font-size:28px; font-weight:800; color:white; margin-bottom:12px; line-height:1.2;">The 5 Types of Energy Vampires: A Complete Guide</h2>
+          <p style="font-size:17px; color:rgba(255,255,255,0.6); line-height:1.8; margin-bottom:20px;">You know that person who leaves you feeling empty after every conversation? That's not a friendship. That's an energy vampire. Here's how to spot all five types before they drain you dry.</p>
+          <span class="btn-primary" style="font-size:12px; padding:14px 28px;">Read Article</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- BLOG GRID -->
+<section class="page-section page-section-dark">
+  <div class="container">
+    <h2 style="margin-bottom:36px;">Latest Articles</h2>
+    <div class="blog-grid">
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-body">
+          <p class="blog-tag">TOXIC RELATIONSHIPS</p>
+          <h3>Why You Keep Attracting Toxic People (And How to Stop)</h3>
+          <p>It's not bad luck. There's a pattern running underneath every toxic relationship you've ever been in. Once you see it, everything changes.</p>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-body">
+          <p class="blog-tag">INNER VAMPIRE</p>
+          <h3>The Inner Vampire: When the Toxic Voice Is Your Own</h3>
+          <p>The most dangerous energy vampire doesn't live in your phone or your house. It lives in your head. Here's how to face it.</p>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-body">
+          <p class="blog-tag">SELF-PROTECTION</p>
+          <h3>21 Boundary Scripts You Can Use Today</h3>
+          <p>Copy-paste these word-for-word when someone crosses the line. No more freezing up. No more guilt spirals after.</p>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-body">
+          <p class="blog-tag">TOXIC RELATIONSHIPS</p>
+          <h3>How to Know When It's Time to Leave</h3>
+          <p>You already know the answer. But here are the signs your body, your energy, and your gut have been screaming at you.</p>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-body">
+          <p class="blog-tag">CHALLENGES</p>
+          <h3>The 7-Day Energy Reset: A Daily Practice for Reclaiming Your Power</h3>
+          <p>One week. Seven simple practices. By day seven, you'll feel like a different person. Start whenever you're ready.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- NEWSLETTER SIGNUP -->
+<section class="page-section page-section-mid">
+  <div class="container" style="max-width:600px; text-align:center;">
+    <h2 style="margin-bottom:8px;">Get New Articles Delivered to Your Inbox</h2>
+    <p style="margin-bottom:32px;">No spam. No fluff. Just real strategies to help you protect your energy and reclaim your life.</p>
+    <form class="email-form" onsubmit="return false;">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p style="font-size:12px; color:rgba(255,255,255,0.35); margin-top:12px;">We respect your inbox. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CATEGORIES -->
+<section class="page-section page-section-dark">
+  <div class="container" style="text-align:center;">
+    <h2 style="font-size:22px; margin-bottom:24px;">Browse by Topic</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+      <a href="#" class="credential" style="cursor:pointer; border-color:var(--pink); color:var(--pink);">All</a>
+      <a href="#" class="credential" style="cursor:pointer;">Energy Vampires</a>
+      <a href="#" class="credential" style="cursor:pointer;">Toxic Relationships</a>
+      <a href="#" class="credential" style="cursor:pointer;">Inner Vampire</a>
+      <a href="#" class="credential" style="cursor:pointer;">Self-Protection</a>
+      <a href="#" class="credential" style="cursor:pointer;">Challenges</a>
+      <a href="#" class="credential" style="cursor:pointer;">Community</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <img src="logo-clean.jpg" alt="Energy Vampire Blasters">
+    <ul class="footer-links">
+      <li><a href="https://instagram.com/energyvampireblasters" target="_blank" rel="noopener">@energyvampireblasters</a></li>
+      <li><a href="https://instagram.com/iamdavidstrauss" target="_blank" rel="noopener">@iamdavidstrauss</a></li>
+      <li><a href="index.html#download">Free Detection Kit</a></li>
+      <li><a href="index.html#challenge">7-Day Challenge</a></li>
+      <li><a href="vision.html">The Vision</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Energy Vampires LLC. All Rights Reserved. This website and its content are for educational and entertainment purposes only. Not a substitute for professional therapy, relationship counseling, or medical treatment. energyvampireblasters.com</p>
+  </div>
+</footer>
+
+<script>
+function toggleNav() {
+  const nav = document.getElementById('mobileNav');
+  const btn = document.querySelector('.nav-toggle');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+}
+
+function closeNav() {
+  const nav = document.getElementById('mobileNav');
+  const btn = document.querySelector('.nav-toggle');
+  nav.classList.remove('open');
+  btn.classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+
+</body>
+</html>
